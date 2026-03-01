@@ -1,33 +1,9 @@
-FROM python:3.9-slim
+#!/bin/bash
+# Initialize DB
+python3 -c "import sqlite3; conn = sqlite3.connect('/app/atlas_vault.db'); cursor = conn.cursor(); cursor.execute('CREATE TABLE IF NOT EXISTS users (email TEXT, password TEXT, role TEXT)'); cursor.execute(\"INSERT OR IGNORE INTO users VALUES ('john.architect@atlas-construction.com','Johan@123','architect')\"); conn.commit(); conn.close()"
 
-# Install system dependencies
-RUN apt-get update && apt-get install -y \
-    openssh-server \
-    cron \
-    e2fsprogs \
-    curl \
-    netcat-traditional \
-    sudo \
-    && rm -rf /var/lib/apt/lists/*
-
-# Create Users
-# atlasuser: The target for lateral movement
-# appuser: The low-priv user running the web app
-RUN useradd -m -s /bin/bash atlasuser && echo "atlasuser:Atlas123!" | chpasswd
-RUN useradd -m appuser
-
-# Set up Sudo privilege for the 'find' exploit (The Final Goal)
-RUN echo "atlasuser ALL=(root) NOPASSWD: /usr/bin/find" >> /etc/sudoers
-
-# Setup App Directory
-WORKDIR /app
-COPY app.py /app/
-COPY entrypoint.sh /app/
-RUN pip install flask requests
-
-# Setup Log Directory (Forensics Challenge)
-RUN mkdir /app/logs && chown root:root /app/logs && chmod 755 /app/logs
-RUN touch /app/logs/atlas.log && chown appuser:appuser /app/logs/atlas.log && chmod 644 /app/logs/atlas.log
+# Run the app as appuser
+exec python3 app.py
 # Set Append-Only attribute (Requires --cap-add LINUX_IMMUTABLE in docker run)
 # RUN chattr +a /app/logs/atlas.log
 
