@@ -23,20 +23,26 @@ RUN useradd -m appuser
 # Set up Sudo privilege for the 'find' bin exploit (The Escalation Goal)
 RUN echo "atlasuser ALL=(root) NOPASSWD: /usr/bin/find" >> /etc/sudoers
 
-# Setup App Directory
+# Setup App Directory (As ROOT)
 WORKDIR /app
 COPY app.py /app/
 COPY entrypoint.sh /app/
-RUN pip install flask requests PyJWT flask-cors
 
-# Ensure app runs as low-priv 'appuser'
-USER appuser
+# Fix permissions and line endings before switching users
+RUN sed -i 's/\r$//' /app/entrypoint.sh && chmod +x /app/entrypoint.sh
 
-# Setup Log Directory (Forensics Challenge)
-USER root
+# Setup Logs and Environment (As ROOT)
 RUN mkdir -p /app/logs && chown appuser:appuser /app/logs && chmod 755 /app/logs
 RUN touch /app/logs/atlas.log && chown appuser:appuser /app/logs/atlas.log && chmod 644 /app/logs/atlas.log
+RUN echo "ATLAS_USER_PASS=Atlas123!" > /app/.env && chown appuser:appuser /app/.env
+
+# Install Python deps (As ROOT to ensure global availability)
+RUN pip install flask requests PyJWT flask-cors
+
+# Final Switch to low-priv user for the web app
 USER appuser
+EXPOSE 5000
+ENTRYPOINT ["/bin/bash", "/app/entrypoint.sh"]
 # Set Append-Only attribute (Requires --cap-add LINUX_IMMUTABLE in docker run)
 # RUN chattr +a /app/logs/atlas.log
 
