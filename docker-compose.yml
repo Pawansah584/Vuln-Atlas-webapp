@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  atlas-server:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    container_name: atlas_apt_target
+    hostname: atlas-server
+    ports:
+      # Map host port 5000 to container port 5000 for the Web App
+      - "5000:5000"
+      # Map host port 2222 to container port 22 for SSH 
+      # (This prevents conflicts if your Ubuntu host is already using port 22)
+      - "2222:22"
+    
+    # SECURITY FEATURE: Required for the `chattr +a` (Append-Only) forensics trick
+    cap_add:
+      - LINUX_IMMUTABLE
+    
+    # Custom network to simulate an internal corporate environment
+    networks:
+      atlas_net:
+        ipv4_address: 172.20.0.10
+
+    # Ensure it restarts automatically if the attacker crashes it
+    restart: unless-stopped
+
+networks:
+  atlas_net:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16

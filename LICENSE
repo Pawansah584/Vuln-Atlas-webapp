@@ -1,0 +1,32 @@
+MIT License
+
+Copyright (c) 2026 Atlas Industrial
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+
+**DISCLAIMER AND WARNING:**
+
+The software is provided for **EDUCATIONAL AND RESEARCH PURPOSES ONLY**. 
+
+1. **NO WARRANTY**: As stated in the MIT License above, the software is provided "as is" and without any warranty. 
+2. **INSECURE BY DESIGN**: This software contains intentional security flaws and vulnerabilities. Using this software in any environment other than a controlled and authorized research/training context is at your own risk.
+3. **LEGAL RESPONSIBILITY**: The user of this software is strictly responsible for ensuring their actions comply with all applicable local, national, and international laws. Unauthorized access to systems or data is illegal.
+4. **NO LIABILITY**: The authors and copyright holders will not be liable for any damages, legal issues, or misuse arising from the use of this software.
