@@ -1,8 +1,19 @@
 #!/bin/bash
-# Initialize DB
-python3 -c "import sqlite3; conn = sqlite3.connect('/app/atlas_vault.db'); cursor = conn.cursor(); cursor.execute('CREATE TABLE IF NOT EXISTS users (email TEXT, password TEXT, role TEXT)'); cursor.execute(\"INSERT OR IGNORE INTO users VALUES ('john.architect@atlas-construction.com','Johan@123','architect')\"); conn.commit(); conn.close()"
+# Atlas Industrial - Secure Entrypoint Script
 
-# Run the app as appuser
+# Initialize the Atlas Vault Database
+echo "[*] Initializing Atlas Vault Database..."
+python3 -c "import sqlite3; \
+conn = sqlite3.connect('/app/atlas_vault.db'); \
+cursor = conn.cursor(); \
+cursor.execute('CREATE TABLE IF NOT EXISTS users (email TEXT, password TEXT, role TEXT)'); \
+cursor.execute(\"INSERT OR IGNORE INTO users VALUES ('john.architect@atlas-construction.com','Johan@123','architect')\"); \
+cursor.execute(\"INSERT OR IGNORE INTO users VALUES ('sarah.admin@atlas-construction.com','AdminSecure99!','admin')\"); \
+conn.commit(); \
+conn.close()"
+
+# Start the Flask Web Application
+echo "[*] Starting Atlas Provisioning Portal on port 5000..."
 exec python3 app.py
 # Set Append-Only attribute (Requires --cap-add LINUX_IMMUTABLE in docker run)
 # RUN chattr +a /app/logs/atlas.log
