@@ -1,22 +1,26 @@
 FROM python:3.9-slim
 
-# Install system dependencies
+# Install system dependencies (C2-ready: wget, socat, iproute2)
 RUN apt-get update && apt-get install -y \
     openssh-server \
     cron \
     e2fsprogs \
     curl \
+    wget \
+    socat \
+    iproute2 \
+    procps \
     netcat-traditional \
     sudo \
     && rm -rf /var/lib/apt/lists/*
 
-# Create Users
-# atlasuser: The target for lateral movement
-# appuser: The low-priv user running the web app
+# Create Users for Lateral Movement and Privilege Escalation labs
+# atlasuser: The pivot target for root escalation via 'find'
+# appuser: The restricted low-priv user that runs the Web App
 RUN useradd -m -s /bin/bash atlasuser && echo "atlasuser:Atlas123!" | chpasswd
 RUN useradd -m appuser
 
-# Set up Sudo privilege for the 'find' exploit (The Final Goal)
+# Set up Sudo privilege for the 'find' bin exploit (The Escalation Goal)
 RUN echo "atlasuser ALL=(root) NOPASSWD: /usr/bin/find" >> /etc/sudoers
 
 # Setup App Directory
@@ -25,9 +29,14 @@ COPY app.py /app/
 COPY entrypoint.sh /app/
 RUN pip install flask requests PyJWT flask-cors
 
+# Ensure app runs as low-priv 'appuser'
+USER appuser
+
 # Setup Log Directory (Forensics Challenge)
-RUN mkdir /app/logs && chown root:root /app/logs && chmod 755 /app/logs
+USER root
+RUN mkdir -p /app/logs && chown appuser:appuser /app/logs && chmod 755 /app/logs
 RUN touch /app/logs/atlas.log && chown appuser:appuser /app/logs/atlas.log && chmod 644 /app/logs/atlas.log
+USER appuser
 # Set Append-Only attribute (Requires --cap-add LINUX_IMMUTABLE in docker run)
 # RUN chattr +a /app/logs/atlas.log
 

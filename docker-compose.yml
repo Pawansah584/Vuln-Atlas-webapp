@@ -18,6 +18,13 @@ services:
     cap_add:
       - LINUX_IMMUTABLE
     
+    # ── VULNERABLE MOUNTS: The Credential Dump & Persistence point ────────────
+    volumes:
+      # Mount John's home directory (Read-Only) to simulate discovery of his info
+      - /home/john:/mnt/host_john:ro
+      # Persistence point: Allow container to write logs back to Host for analysis
+      - ./logs:/app/logs:rw
+
     # Custom network to simulate an internal corporate environment
     networks:
       atlas_net:
