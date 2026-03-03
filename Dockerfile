@@ -39,12 +39,9 @@ RUN echo "ATLAS_USER_PASS=Atlas123!" > /app/.env && chown appuser:appuser /app/.
 # Install Python deps (As ROOT to ensure global availability)
 RUN pip install flask requests PyJWT flask-cors
 
-# Final Switch to low-priv user for the web app
-USER appuser
-EXPOSE 5000
+# Final Setup
+EXPOSE 5000 22
 ENTRYPOINT ["/bin/bash", "/app/entrypoint.sh"]
-# Set Append-Only attribute (Requires --cap-add LINUX_IMMUTABLE in docker run)
-# RUN chattr +a /app/logs/atlas.log
 
 # Credential Breadcrumb (T1552)
 # Realistic Leaks for Lateral Movement:
