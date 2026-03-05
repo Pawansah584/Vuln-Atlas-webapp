@@ -1,0 +1,138 @@
+%PDF-1.4
+STRUCTURE | SPECIFICATIONS v4
+
+ATLAS CONSTRUCTION PROJECT
+Comprehensive Structural Design Specifications
+Version: 4.0 | Date: 2026-03-04 | Classification: INTERNAL
+
+====================================================================
+SECTION 1: GENERAL REQUIREMENTS
+====================================================================
+
+1.1 DESIGN STANDARDS
+- Australian Standards: AS 3600, AS 4100
+- Building Code of Australia: NCC 2022
+- Wind Code: AS/NZS 1170.2
+- Seismic Code: AS/NZS 1170.4
+- Design Life: 75 years
+
+1.2 DESIGN LOADS
+- Live Load (Office): 4.0 kPa
+- Live Load (Retail): 5.0 kPa
+- Wind Speed: 60 m/s (Ultimate)
+- Seismic Zone: C (PGA = 0.3g)
+- Environmental: Moderate exposure
+
+1.3 SAFETY FACTORS
+- Partial Factor on Materials: 1.5 (steel), 1.4 (concrete)
+- Partial Factor on Actions: 1.6 (permanent), 1.5 (variable)
+- Combined Factor of Safety: 3.0+ throughout
+
+====================================================================
+SECTION 2: CONCRETE DESIGN
+====================================================================
+
+2.1 CONCRETE GRADE
+- Column Concrete: C50 (50 MPa @ 28 days)
+- Slab Concrete: C40 (40 MPa @ 28 days)
+- Pile Concrete: C50 (50 MPa @ 28 days)
+- Slump: 120-150mm (all grades)
+
+2.2 REINFORCEMENT
+- Main Reinforcement: Grade 500 (fy = 500 MPa)
+- Links/Stirrups: Grade 500
+- Minimum Cover: 50mm (columns), 40mm (slabs)
+- Lap Length: 50 Ø (Grade 500)
+
+2.3 DURABILITY
+- Carbonation Depth Limit: 10mm (75 years)
+- Crack Width Limit: 0.2mm (reinforced), 0.15mm (PS)
+- Chloride Ingress Protection: Grade C50 concrete mandatory
+
+====================================================================
+SECTION 3: STEEL DESIGN
+====================================================================
+
+3.1 STRUCTURAL STEEL
+- Main Frames: S355 (fy = 355 MPa, fu = 510 MPa)
+- Connections: S275 or higher
+- Bolts: 8.8 grade high-strength bolts
+- Welds: E7018 electrodes, FCAW for semi-automatic
+
+3.2 COLUMN DESIGN
+- Buckling Check: AS 4100 Section 5.6
+- Slenderness Ratio: Max λ = 150
+- Connection Moment Capacity: ≥ 75% beam capacity
+
+3.3 BEAM DESIGN
+- Flexural Capacity Check: φ Mn ≥ 1.6 Md
+- Shear Capacity Check: φ Vn ≥ 1.5 Vd
+- Deflection Limit: Span/250 (permanent loads)
+- Composite Action: Shear studs @ 300mm spacing
+
+====================================================================
+SECTION 4: FOUNDATION DESIGN
+====================================================================
+
+4.1 PILE FOUNDATION
+- Pile Type: Bored Cast-in-Place Reinforced Concrete
+- Diameter: 1.2m (standard), 1.5m (corner piles)
+- Design Capacity: 3,100 kN per pile (working load)
+- Minimum Depth: 32m below formation level
+
+4.2 BEARING CAPACITY
+- Allowable Bearing Pressure: 1,500 kPa
+- Subsidence: < 50mm total, < 20mm differential
+- Settlement Analysis: Performed per Terzaghi methodology
+
+4.3 PILE CAP DESIGN
+- Grade Beams: C50 concrete
+- Dimensions: 1.5m wide x 1.2m deep
+- Reinforcement: Grade 500 @ 20mm spacing both faces
+
+====================================================================
+SECTION 5: COMPOSITE DESIGN
+====================================================================
+
+5.1 COMPOSITE DECKING
+- Floor System: Composite (steel deck + concrete topping)
+- Deck Profile: 150mm total depth
+- Steel Deck: 75mm profiled (fastened to beams)
+- Concrete Topping: 75mm C40, reinforced with mesh
+
+5.2 SHEAR CONNECTION
+- Shear Studs: ∅19mm x 95mm, Grade 8.8
+- Spacing: 300mm along beams
+- Capacity: 300 kN per stud (working load)
+- Pattern: Staggered, 2 per flange width
+
+====================================================================
+SECTION 6: QUALITY CONTROL
+====================================================================
+
+6.1 CONCRETE TESTING
+- Slump Test: Every 50 m³ or daily
+- Compressive Strength: 3 no./test day (cylinders)
+- 28-day Strength Verification: Mandatory
+- Chloride Content Test: Annual on site samples
+
+6.2 STEEL TESTING
+- Mill Test Certificates: All deliveries
+- Tensile Tests: Per AS 4100 requirements
+- Hardness Testing: Fracture Critical welds (UT)
+- Non-Destructive Testing: 10% of welded connections
+
+6.3 TOLERANCES
+- Dimensional: ±50mm for main elements
+- Verticality: ±25mm in 10m height
+- Levelness: ±10mm in 10m length
+- Plumb: ±1:500 for column lines
+
+====================================================================
+DOCUMENT CONTROL
+====================================================================
+Prepared by: Atlas Structural Engineering Team
+Reviewed by: Principal Structural Engineer
+Approved by: Project Director
+Effective Date: March 4, 2026
+Next Review: March 4, 2027

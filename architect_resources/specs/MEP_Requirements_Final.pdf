@@ -1,0 +1,147 @@
+%PDF-1.4
+MEP | REQUIREMENTS FINAL
+
+ATLAS CONSTRUCTION PROJECT
+Mechanical, Electrical, Plumbing Design Specification
+Version: FINAL | Date: 2026-03-03 | Classification: INTERNAL
+
+====================================================================
+MECHANICAL SYSTEMS
+====================================================================
+
+1.1 HVAC GENERAL REQUIREMENTS
+- Design Standard: AS 1228 (Commercial building standards)
+- Thermal Comfort: ASHRAE 55-2023
+- Air Change Rates: 8 ACH minimum, 12 ACH office areas
+- Humidity Control: 30-60% RH in occupied spaces
+- System Type: Central Chilled Water + Central Heating
+
+1.2 COOLING SYSTEM
+- Cooling Load: 4,500 kW (peak)
+- Chiller Configuration: 2 x 2,250 kW (N+1 redundancy)
+- Chiller Type: Centrifugal, hermetic
+- Capacity Modulation: 25-100% via inlet guide vanes
+- Refrigerant: HFC-134a (zero ODP)
+
+1.3 HEATING SYSTEM
+- Heating Load: 2,200 kW (peak)
+- Boiler Configuration: 2 x 1,100 kW (N+1 redundancy)
+- Boiler Type: Large cube water-tube gas-fired
+- Efficiency: ≥ 94% (seasonal)
+- Fuel: Mains Natural Gas
+
+1.4 VENTILATION
+- Outdoor Air: 8-15 L/s per person (variable per zone)
+- Exhaust Systems: 100% make-up air balance
+- Filters: MERV-13 minimum (prefilters)
+- Ductwork: Galvanized steel, sealed, insulated
+- Noise Level: ≤ 35 dB(A) in occupied spaces
+
+1.5 DUCTWORK DESIGN
+- Main Supply Duct: 800-1000mm diameter
+- Return Duct: 900-1200mm diameter
+- Exhaust Duct: 600-800mm diameter
+- Velocity: 5-6 m/s maximum (noise consideration)
+- Insulation: 50mm polyurethane foam, R-2.0
+
+====================================================================
+ELECTRICAL SYSTEMS
+====================================================================
+
+2.1 ELECTRICAL SUPPLY
+- Supply Voltage: 400V, 3-phase, 50Hz (Australian standard)
+- Incoming Supply Capacity: 2000A main switchboard
+- Backup Power: 1500 kW diesel generator (48-hour runtime)
+- UPS System: 500 kW for critical loads (≥ 15 minutes autonomy)
+
+2.2 DISTRIBUTION SYSTEM
+- Main Distribution Boards: 400A x 13 (one per floor)
+- Lighting Load: 15 W/m² (LED throughout)
+- Power Load: 50 W/m² (office areas)
+- Circuits: Max 20A for general purpose, 16A for lighting
+- Earthing: TN-S system with RCDs (AS/NZS 3000)
+
+2.3 LIGHTING DESIGN
+- Illuminance: 500 lux (office), 300 lux (corridors)
+- Type: LED luminaires (≥ 90 CRI, 4000K CCT)
+- Control: Occupancy sensors + manual override in all zones
+- Dimming: 0-100% via DALI control system
+- Energy Efficiency: ≥ 91 lumens per watt
+
+2.4 EMERGENCY SYSTEMS
+- Emergency Lighting: Backup battery + LED (3-hour duration)
+- Exit Signage: LED, maintained + non-maintained types
+- Fire Alarm: Category A system, fully automatic (AS 1670)
+- Smoke Detection: Photoelectric types throughout
+- Manual Call Points: Every 30m corridor length
+
+2.5 COMMUNICATIONS INFRASTRUCTURE
+- Data Cabling: Category 6A (all work areas)
+- WiFi Coverage: 802.11ax (WiFi 6) mesh network
+- Telephone System: IP-PBX, 200 extensions
+- Structured Cabling: Compliant AS/NZS 3080.2
+- Fiber Optic: Multi-mode backbone (MMF) 12F
+
+====================================================================
+PLUMBING SYSTEMS
+====================================================================
+
+3.1 WATER SUPPLY
+- Main Inlet: 50mm diameter, single entry point
+- Water Pressure: 200-400 kPa (regulated)
+- Pressure Tank: 5,000L capacity
+- Backup Pump: Submersible, 25 L/s capacity
+- Water Quality: Potable grade per AS 4020
+
+3.2 DISTRIBUTION (Hot & Cold)
+- Cold Water: Copper or HDPE piping
+- Hot Water: Copper or HDPE with heating elements
+- Insulation: 50mm polyurethane foam on hot water
+- Pipe Sizing: AS 3500.1 (minimum velocity 0.6-2.0 m/s)
+- Temperature: 50-60°C hot water (thermostat controlled)
+
+3.3 FIXTURES & FITTINGS
+- Toilet Seats: Dual-flush (3/6L), pressure-assisted
+- Faucets: Sensor-activated (non-contact) in public areas
+- Showers: Thermostatic cartridges (safety limit 50°C)
+- Urinals: Dual-flush waterless options (50% reduction)
+
+3.4 WASTE WATER
+- Drainage System: Gravity + pump discharge
+- Sump Pit: 10 m³ capacity (basement collection)
+- Drainage Pump: 50 L/s @ 50m TDH (N+1 backup)
+- Grease Trap: Required for kitchen areas
+- Treatment: Septic system for gray water recycling
+
+3.5 FIRE PROTECTION (Water)
+- System Type: Wet sprinkler system (AS 1851)
+- Coverage: 100% of building except stairwells
+- Sprinkler Heads: Pendent, 4.5mm orifice
+- Pressure: 400-600 kPa at sprinkler heads
+- Response Time: ≤ 60 seconds
+- Water Storage: 500,000L dedicated fire tanks
+
+====================================================================
+COORDINATION REQUIREMENTS
+====================================================================
+
+4.1 ARCHITECTURAL INTERFACE
+- Ductwork to clear ceiling height (min 2.5m occupied)
+- Piping routing via coordinated core zones
+- Equipment rooms: 20m2 per floor (HVAC + electrical)
+- Access requirements: 1.2m minimum service clearance
+
+4.2 STRUCTURAL INTERFACE
+- All heavy equipment supported independently
+- Vibration isolation: Springs + neoprene pads
+- Pipe hangers: Every 2m vertical, 3m horizontal runs
+- Bolt penetrations: Sleeved through concrete elements
+
+====================================================================
+DOCUMENT CONTROL
+====================================================================
+Prepared by: MEP Design Services
+Reviewed by: MEP Project Lead
+Approved by: Technical Director
+Effective Date: March 3, 2026
+Status: FINAL (No further amendments)

@@ -1,0 +1,91 @@
+AutoCAD DXF
+HVAC Systems Design
+Date: 2026-03-04
+Version: 3.0
+
+MECHANICAL SYSTEMS DESIGN
+===========================
+
+Central Chiller System:
+- Type: Centrifugal Chiller (2 units N+1)
+- Capacity: 2250 kW each (4500 kW total)
+- Refrigerant: HFC-134a (zero ODP)
+- COP: 4.0+ at delta T 6°C
+
+Boiler System:
+- Type: Water-tube gas-fired boiler (2 units N+1)
+- Capacity: 1100 kW each (2200 kW total)
+- Fuel: Mains natural gas
+- Efficiency: 94% seasonal
+- Modulation: 15-100% turndown
+
+Pump Systems:
+- Chilled Water Pump: 160 m3/h @ 200 kPa
+- Condenser Water Pump: 240 m3/h @ 250 kPa
+- Hot Water Pump: 80 m3/h @ 150 kPa
+- All pumps: Variable frequency drives (VFD)
+
+Cooling Tower:
+- Type: Induced draft cooling tower
+- Capacity: 4500 kW
+- Water Flow: 240 m3/h
+- Height: 12 meters
+- Noise Rating: 78 dB(A) @ 1m
+
+Ductwork Distribution:
+- Supply Mains: DN800-DN1000 (galvanized steel)
+- Return Ducts: DN900-DN1200 (flexible returns)
+- Exhaust Ducts: DN600-DN800 (rooftop exhausts)
+- Total Ductwork: 8500 meters
+- Velocity: 5-6 m/s (noise controlled)
+- Insulation: 50mm polyurethane, R-2.0 minimum
+
+Terminal Units:
+- Variable Air Volume (VAV) boxes: 156 total
+- Damper Control: Proportional electric
+- Pressure Sensor: In each zone
+- Low-flow alarm: Energy efficiency indicator
+
+Filtration:
+- Main Filter: MERV-13 prefilters
+- Replacement: Every 3 months
+- Bypass: 2% maximum leakage
+- Pressure Drop: 150 Pa clean, 250 Pa dirty limit
+
+Ventilation:
+- Outdoor Air: 8-15 L/s per person (variable)
+- Minimum Outside Air: 20% during operation
+- Makeup Air: 100% exhausted air balanced
+- Economizer: Outdoor air free cooling when < 18°C
+
+Sound Attenuation:
+- Main Duct Silencers: Lined at source
+- Duct Lining: 50mm foam-faced fiberglass
+- Terminal Units: Integral silencers
+- Target Noise: ≤ 35 dB(A) occupied spaces
+
+Control System:
+- Building Management System: DDC control
+- Setpoints: Adjustable via touch panel
+- Occupancy: Auto override outside hours
+- Demand Reset: Temperature optimization
+- Energy Monitoring: Real-time consumption display
+
+Maintenance Access:
+- Service Doors: Every 15m ductwork runs
+- Filter Access: Ground-level, safe access
+- Equipment Rooms: Minimum 3m x 4m per floor
+- Clearance: 1.2m on all sides for service
+
+System Performance:
+- System Response: < 5 minutes to setpoint
+- Uniform Comfort: ±1°C throughout building
+- Energy Efficiency: 40% below baseline
+- Peak Load Reduction: 15% via chilled beam assist
+
+Commissioning:
+- Air Balance: Performed to ±10% variance
+- Controls Verification: Full functional test
+- Performance Testing: 24-hour operation
+- Training: Building operations staff
+Status: READY FOR COMMISSIONING

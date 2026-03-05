@@ -1,0 +1,44 @@
+REVIT Model Format
+==================
+Model Name: Interior_Layout_3D
+Version: 1.8
+Date: 2026-02-28
+Software: Autodesk Revit 2024
+
+OVERALL DIMENSIONS
+==================
+Total Area: 95,000 m²
+Number of Floors: 15
+Floor Height: 4.0m (structural) + 0.5m (finishes)
+Total Height: 67.5 meters
+
+FLOOR AREA BREAKDOWN
+====================
+Basement L2: 8,500 m² (Car Parking)
+Basement L1: 8,500 m² (Car Parking + Storage)
+Ground Floor: 10,500 m² (Retail + Lobby)
+Office Floors (L1-L13): 6,800 m² each = 88,400 m²
+Roof Level: 5,200 m² (Mechanical + Terraces)
+
+ROOM SCHEDULE
+=============
+Total Rooms: 847
+Conference Rooms: 42 @ 80-150 m²
+Open Office: 156 workstations
+Private Offices: 89 @ 20-30 m²
+Meeting Pods: 24
+Breakout Areas: 12
+
+FINISHES
+========
+Flooring: Polished Concrete, Timber Parquet, Luxury Vinyl
+Walls: Drywall + Paint, Glass Partitions, Acoustic Panels
+Ceilings: Suspended Acoustic, Exposed Concrete, Gypsum
+Lighting: LED Integrated, Track Lights, Emergency
+
+VERTICAL CIRCULATION
+====================
+Main Elevators: 4 @ 2500 kg capacity
+Freight Elevator: 1 @ 5000 kg capacity
+Emergency Stairs: 3 (pressurized)
+Escalators: 2 (retail area)

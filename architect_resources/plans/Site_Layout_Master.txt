@@ -1,0 +1,159 @@
+ATLAS CONSTRUCTION PROJECT
+Site Master Plan Document
+Date: 2026-03-04
+
+SITE OVERVIEW
+=============
+Total Site Area: 15,000 m²
+Building Footprint: 12,000 m²
+Green Space Reserved: 2,400 m²
+Accessibility Compliance: FULL
+
+BASEMENT LEVELS
+===============
+
+BASEMENT LEVEL 2 (B2):
+- Area: 8,500 m²
+- Use: Car Parking (180 spaces)
+- Ramp Access: 2 entry/exit ramps (8% grade)
+- Loading Dock: 200 m² for deliveries
+- Plant Room: 300 m² (HVAC equipment)
+- Waste Management: 150 m³ capacity
+
+BASEMENT LEVEL 1 (B1):
+- Area: 8,500 m²
+- Mix: Car Parking (180 spaces) + Storage
+- Storage Areas: 2,000 m² secure storage
+- Bike Parking: 250 spaces (secure area)
+- Emergency Generator: Backup power system
+- Fire Pump Room: Dedicated space
+
+GROUND FLOOR (G):
+- Area: 10,500 m²
+- Mix: Retail (2,500 m²) + Lobby (1,500 m²) + Services
+- Retail Tenants: 6 anchor stores pre-committed
+- Main Entrance: 15m high lobby with atrium
+- Public Toilets: Full accessible facilities
+- Cafe Area: 200 m² seating capacity
+- Reception: 400 m² staffed reception
+
+OFFICE FLOORS (L1-L13):
+- Floor Area: 6,800 m² per level
+- Total Office: 88,400 m²
+- Open Plan Workstations: 156 per floor
+- Meeting Rooms: 42 distributed (3-4 per floor)
+- Private Offices: 89 distributed throughout
+- Breakout Spaces: 12 casual zones per floor
+- Collaboration Pods: 24 telephone booths
+
+CORE & SERVICES
+===============
+
+Building Core (Central):
+- Dimensions: 30m x 25m
+- Lifts: 4 passenger (2500 kg capacity each)
+- Freight Lift: 1 unit (5000 kg capacity)
+- Stairs: 3 pressurized emergency routes
+- Risers: Mechanical, electrical, plumbing
+- Utilities: Distribution point for all services
+
+ROOF LEVEL (Level 15):
+- Area: 5,200 m²
+- Mix: Mechanical equipment + outdoor terrace
+- Mechanical Space: 3,000 m² (HVAC, chillers)
+- Rooftop Terrace: 1,200 m² public use
+- Landscaping: Extensive green roof
+- Solar Array: 800 kWp photovoltaic capacity
+- Wind Monitoring: Anemometer for efficiency
+
+CIRCULATION SYSTEMS
+===================
+
+Pedestrian
+- Main Foyer: 2,500 m² public lobby
+- Corridors: Min 2.5m width throughout
+- Walkways: Direct pedestrian routes
+- Outdoor Paths: Landscaped connections
+
+Vertical Circulation:
+- Main Elevators: High-speed (1.0 m/s)
+- Stairs: Emergency escape routes
+- Escalators: Retail area connection (2 units)
+- Wheelchair Lifts: Accessible to all levels
+
+Vehicular:
+- Main Entrance: 2-way traffic (4 lanes)
+- Ramp Gradient: 8% maximum
+- Turning Radius: 18m minimum
+- Loading Dock: Direct from street access
+
+PARKING PROVISION
+=================
+- Basement L2: 180 general spaces
+- Basement L1: 180 general spaces
+- Accessible Spaces: 8 spaces (2.5m width)
+- Motorcycle Parking: 24 spaces
+- Bicycle Parking: 250 spaces (secure)
+- EV Charging: 20 chargers installed (Level 2)
+- Total Capacity: 360+ vehicles
+
+UTILITIES & INFRASTRUCTURE
+==========================
+
+Water Services:
+- Main Inlet: 50mm single entry
+- Storage Tanks: 500,000L fire + 100,000L graywater
+- Pressure Maintenance: Automatic regulation
+- Wastewater: Treatment system installed
+
+Electrical:
+- Main Supply: 2000A 400V 3-phase entry
+- Backup Generator: 1500 kW (48-hour fuel)
+- Solar Array: 800 kWp rooftop mounted
+- UPS System: 500 kW (critical loads)
+
+Heating & Cooling:
+- Chillers: 2 x 2250 kW (N+1 redundancy)
+- Boilers: 2 x 1100 kW natural gas
+- Cooling Tower: 12m height capacity
+- Heat Recovery: Gray water reuse system
+
+EMERGENCY ACCESS
+=================
+- 3 fire exit stairwells (pressurized)
+- Min stair width: 1.2m for evacuation
+- Assembly Point: 150m radius, 10,000+ m² clear area
+- Fire Hydrants: Every 50m street frontage
+- Firefighter Access: Unobstructed to all elevations
+
+SUSTAINABILITY FEATURES
+========================
+- Building Energy Rating: 5-star NatHERS
+- Water Reduction: 30% below baseline
+- Waste Diversion: 85% from construction (target)
+- Green Roof: 1,200 m² on mechanical level
+- Landscaping: Native species + stormwater management
+- Biodiversity: Habitat creation for local species
+
+SITE STATISTICS
+================
+- Site Orientation: North-South aligned
+- Shading Study: All floors analyzed
+- Wind Analysis: Comfort assessment completed
+- Solar Gain: Optimized for climate zone
+- Stormwater: Retention capacity 500 m³
+- Acoustic: Noise barriers installed (traffic)
+
+COMPLIANCE & CERTIFICATION
+===========================
+- Building Code Approval: Signed off
+- Development Approval: Granted (2024)
+- Environmental Assessment: Completed
+- Accessibility Certificate: APPROVED
+- Heritage Impact: No impact (rural site)
+- Traffic Management: Approved by council
+
+- Master Plan Status: APPROVED FOR CONSTRUCTION
+- Site Ready: 2025-Q3 (groundworks complete)
+- Superstructure: 2025-Q4 to 2026-Q3
+- Handover: 2027 (estimated)

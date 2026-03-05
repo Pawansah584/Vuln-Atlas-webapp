@@ -1,0 +1,56 @@
+# Virtual Environment
+.venv/
+venv/
+ENV/
+env/
+
+# Python Cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Logs and Database
+*.log
+run.log
+*.db
+atlas_vault.db
+
+# Test Results
+test_results.json
+.pytest_cache/
+.coverage
+
+# File Uploads and User Data
+uploads/*
+!uploads/.gitkeep
+logs/*
+!logs/.gitkeep
+
+# Environment Variables
+.env
+.env.local

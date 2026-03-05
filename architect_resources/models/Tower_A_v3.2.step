@@ -1,0 +1,47 @@
+STEP 3D Model Format
+====================
+Model Name: Tower_A_Main_Structure
+Version: 3.2
+Date: 2026-03-04
+Scale: 1:100
+
+GEOMETRY DEFINITION
+===================
+- Total Height: 125.5 meters
+- Floor Levels: 15
+- Foundation Type: Reinforced Concrete Pile
+- Structural System: Steel Frame with Composite Decking
+
+COORDINATE SYSTEM
+=================
+Origin: (0, 0, 0)
+X-Axis: East Direction
+Y-Axis: North Direction
+Z-Axis: Elevation
+
+MAIN STRUCTURAL ELEMENTS
+========================
+- Primary Columns: 12 @ 500x500mm Steel Box
+- Secondary Beams: 48 @ 300x300mm Steel Box
+- Floor Plates: Composite Steel Deck 150mm
+- Connecting Elements: High-Strength Bolts & Welds
+
+MATERIAL SPECIFICATIONS
+=======================
+- Steel Grade: S355 (355 MPa)
+- Concrete Grade: C50 (50 MPa)
+- Composite Deck: 75mm Reinforced
+
+MODEL ACCURACY
+==============
+Precision: ±5mm
+Polygon Count: 2.4M
+File Size: 2.4 GB
+Rendering Time: ~45 seconds (High-spec system)
+
+OPTIONAL COMPONENTS
+===================
+- HVAC Ductwork: Yes
+- Electrical Conduits: Yes
+- Plumbing Routes: Yes
+- Fire Suppression: Yes

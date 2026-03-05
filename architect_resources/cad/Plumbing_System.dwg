@@ -1,0 +1,72 @@
+AutoCAD Drawing File (DWG)
+Plumbing Systems Layout
+Date: 2026-03-04
+Version: 2.5
+
+BUILDING PLUMBING DISTRIBUTION
+=================================
+
+Main Water Supply:
+- Inlet Point: Single 50mm diameter entry
+- Pressure Tank: 5000L capacity (Basement)
+- Backup Pump: 25 L/s capacity
+- Pressure Reduction: 200-400 kPa maintained
+
+Hot Water System:
+- Capacity: 2000L storage tank
+- Element Size: 80 kW heating elements
+- Temperature: 50-60°C (thermostat controlled)
+- Distribution: Copper piping, insulated
+
+Cold Water Distribution:
+- Primary Loop: 40mm (main risers)
+- Branches: 25mm to 15mm (fixture branches)
+- Material: Copper or HDPE
+- Velocity: 0.6-2.0 m/s throughout
+
+Plumbing Fixtures:
+- Toilets: 2 per floor (15 floors) = 30 total
+- Sinks: 120+ (office, restroom, kitchen)
+- Showers: 6 (emergency eye wash + facilities)
+- Urinals: 8 (optional waterless)
+
+Drainage System:
+- Waste Water Pump: 50 L/s @ 50m TDH
+- Sump Pit: 10m³ capacity (basement)
+- Grease Trap: Kitchen areas (50L capacity)
+- Slope: 1:100 minimum throughout
+
+Fire Protection (Water):
+- Storage Tanks: 500,000L capacity
+- Sprinkler System: Wet type, 100% coverage
+- Pressure: 400-600 kPa at sprinkler heads
+- Activation: Automatic 60° thermal fusible
+- Manual Call Points: Every 30m corridor
+
+Special Systems:
+- Graywater Recycling: 100,000L storage
+- Rainwater Harvesting: 500,000L cistern
+- Greywater Treatment: Sand filter system
+- Reuse Target: 30% of total water consumption
+
+Maintenance Access:
+- Valve Locations: Clearly marked + labeled
+- Cleanouts: Every change of direction
+- Isolation Points: Per floor for maintenance
+- Service Lanes: 1.2m minimum clearance
+
+System Testing:
+- Pressure Test: 1.5x working pressure, 1 hour
+- Leak Test: Tracer dye + pressure gauge
+- Flow Test: 3000+ L/day capacity verified
+- Certification: PASSED all tests
+
+Compliance:
+- AS 3500 Series: Fully compliant
+- Building Code: Approved & certified
+- Water Quality: Potable grade throughout
+- Accessibility: All shut-offs clearly labeled
+
+Drawing Status: APPROVED FOR CONSTRUCTION
+Prepared by: Plumbing Design Services
+Last Updated: 2026-02-28

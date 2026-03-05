@@ -1,0 +1,53 @@
+AutoCAD Drawing File (DWG)
+Electrical Systems Layout
+Date: 2026-03-04
+Version: 2.8
+
+BUILDING ELECTRICAL DISTRIBUTION
+====================================
+
+Main Distribution Points:
+- Main Switchboard: Level 0 (Basement L2)
+- Sub-boards: 13 total (1 per floor + lobby)
+- Emergency Generator: Basement level, 1500kW capacity
+- UPS System: Server room, 500kW backup
+
+Lighting Network:
+- LED Luminaires: ~4500 total units
+- Control: DALI dimming system
+- Emergency Lighting: Battery backup 3-hour autonomy
+- Occupancy Sensors: 847 zones (one per room)
+
+Power Distribution:
+- Main Incoming: 2000A, 400V 3-phase
+- Floor Distribution: Variable per occupancy
+- Data Cabling: Cat 6A throughout
+- WiFi Access Points: 150 units (WiFi 6)
+
+Safety Systems:
+- Fire Alarm: Category A (fully automatic)
+- Emergency Exits: LED signage + manual call points
+- RCD Protection: All circuits
+- Backup Power: 48-hour generator fuel supply
+
+Circuit Schedule:
+- Lighting Circuits: 156 total
+- Power Circuits: 234 total
+- Special Circuits: 45 total (HVAC, lifts, etc.)
+- Data Circuits: 320 total
+
+Cable Routing:
+- Main riser: Backbone conduit 4" diameter
+- Floor distribution: Under-floor cable trays
+- Vertical risers: Every core zone (4 locations)
+- Accessible everywhere for maintenance
+
+Compliance Status:
+- AS/NZS 3000 Compliant: YES
+- REC Certificate: REC-001847 (valid 2027)
+- Electrical Safety Office: Certified
+- Inspection Status: PASSED
+
+Drawing Status: APPROVED FOR CONSTRUCTION
+Prepared by: Electrical Design Services
+Last Updated: 2026-02-28

@@ -1,0 +1,45 @@
+STEP 3D Model Format
+====================
+Model Name: Foundation_Details
+Version: 2.1
+Date: 2026-03-01
+Scale: 1:50
+
+FOUNDATION DESIGN
+=================
+Type: Deep Pile Foundation
+Total Area: 12,000 m²
+Depth: 35 meters
+
+PILE SPECIFICATION
+==================
+Pile Type: Bored Cast-in-Situ Reinforced Concrete
+Number of Piles: 156
+Diameter: 1.2 meters
+Length: 32 meters
+Spacing: 4.5 meters (both directions)
+
+GRADE BEAMS
+===========
+Width: 1.5 meters
+Height: 1.2 meters
+Reinforcement: Grade 500 Steel @ 25mm spacing
+
+EXCAVATION
+==========
+Max Depth: 35 meters
+Shoring System: Diaphragm Wall
+Wall Thickness: 1.0 meter
+Wall Length: 800 meters
+
+BEARING CAPACITY
+================
+Allowable Bearing Pressure: 1500 kPa
+Settlement: < 50mm
+Factor of Safety: 3.0
+
+MATERIAL VOLUMES
+================
+Concrete: 18,500 m³
+Reinforcement: 2,850 tonnes
+Site Materials: 45,000 tonnes (approx)

@@ -1,0 +1,56 @@
+STEP 3D Model Format
+====================
+Model Name: Mechanical_Systems_Assembly
+Version: 3.0
+Date: 2026-03-02
+Scale: 1:200
+
+HVAC SYSTEM
+===========
+Type: Central VAV (Variable Air Volume) with Chilled Water Loop
+Cooling Capacity: 4,500 kW
+Heating Capacity: 2,200 kW
+Total Ductwork Length: 8,500 meters
+
+CHILLER UNITS
+=============
+Quantity: 2 (N+1 redundancy)
+Type: Centrifugal Chiller
+Capacity: 2,250 kW each
+Refrigerant: HFC-134a
+Operating Temperature: 6°C/12°C
+
+BOILER UNITS
+============
+Quantity: 2 (N+1 redundancy)
+Type: Water Tube Boiler
+Capacity: 1,100 kW each
+Fuel: Natural Gas
+Efficiency: 94%
+
+PUMPING SYSTEMS
+===============
+Chilled Water Pump: 160 m³/h @ 200 kPa
+Condenser Water Pump: 240 m³/h @ 250 kPa
+Hot Water Pump: 80 m³/h @ 150 kPa
+
+COOLING TOWER
+=============
+Type: Induced Draft Cooling Tower
+Capacity: 4,500 kW
+Water Flow Rate: 240 m³/h
+Height: 12 meters
+
+PIPING LAYOUT
+=============
+Refrigerant Piping: DN50-DN100 (insulated)
+Chilled Water: DN100-DN150 (insulated)
+Hot Water: DN80-DN125 (insulated)
+Condenser Water: DN125-DN150 (uninsulated)
+
+DISTRIBUTION DUCTS
+==================
+Main Supply: DN800-DN1000
+Return Ducts: DN900-DN1200
+Exhaust Ducts: DN600-DN800
+Minimum Velocity: 5 m/s throughout
